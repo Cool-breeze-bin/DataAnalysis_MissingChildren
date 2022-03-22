@@ -1,0 +1,295 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+<style>
+  .black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.80;
+    filter: alpha(opacity=88);
+  }
+  .white_content {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 900px;
+    height: 600px;
+    /*padding: 5px;*/
+    padding-top: 0;
+    padding-right: 15px;
+    border: 2px solid rgb(6,25,96);
+    background-color: rgba(6,25,96,.5);
+    z-index:1002;
+    overflow: hidden;
+  }
+</style>
+</head>
+	<script>
+	$(window).load(function(){  
+             $(".loading").fadeOut()
+            })  
+			
+/****/
+$(document).ready(function(){
+	var whei=$(window).width()
+	$("html").css({fontSize:whei/20})
+	$(window).resize(function(){
+		var whei=$(window).width()
+	 $("html").css({fontSize:whei/20})
+});
+	});
+	</script>
+	<script type="text/javascript" src="js/echarts.min.js"></script> 
+	<script language="JavaScript" src="js/js.js"></script> 
+<body>
+
+<div class="canvas" style="opacity: .2">
+	<iframe frameborder="0" src="js/index.html" style="width: 100%; height: 100%"></iframe>
+	</div>
+<div class="loading">
+  <div class="loadbox"> <img src="picture/loading.gif"> 页面加载中... </div>
+</div>
+<div class="head">
+  <h1>失踪儿童可视化大屏</h1>
+  <div class="weather"><!--<img src="picture/weather.png"><span>多云转小雨</span>--><span>数据来源：中国公安部公开数据</span></div>
+	
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"-"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	
+	
+</div>
+<div class="mainbox">
+  <ul class="clearfix">
+    <li>
+      <div class="boxall" style="height: 3.2rem">
+        <p style="margin: 0 0 auto 86%;"><a href = "JavaScript:void(0)" onclick = "openDialog()">点击放大</a></p>
+        <div class="alltitle">失踪儿童年龄段统计</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/失踪年龄段统计.html" style="border: 0ch;z-index: -2;margin-top: -30px;"></iframe>
+        </div>
+        <!-- <div class="alltitle">模块标题样式1</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div> -->
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <p style="margin: 0 0 auto 86%;"><a href = "JavaScript:void(0)" onclick = "openDialog_1()">点击放大</a></p>
+        <div class="alltitle">近五年失踪儿童性别比</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/男女柱状图.html" style="border: 0ch;z-index: -2;margin-top: -30px;margin-left: 15px;"></iframe>
+        </div>
+        <!-- <div class="allnav" id="echart2"></div>
+        <div class="boxfoot"></div> -->
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <p style="margin: 0 0 auto 86%;"><a href = "JavaScript:void(0)" onclick = "openDialog_pie()">点击放大</a></p>
+        <div class="alltitle">失踪儿童时间段分布</div>
+        <div style="height:100%; width: 100%;">
+          <iframe width="100%" height="100%" src="html/pie.html" style="border: 0ch;z-index: -2;margin-top: -30px;margin-left: 15px;"></iframe>
+		  </div>
+        <div class="boxfoot">
+			
+		  </div>
+      </div>
+    </li>
+    <li>
+      <div class="bar">
+        <div class="barbox">
+          <ul class="clearfix">
+            <li class="pulll_left counter">573</li>
+            <li class="pulll_left counter">244</li>
+            <li class="pulll_left counter">97</li>
+          </ul>
+        </div>
+        <div class="barbox2">
+          <ul class="clearfix">
+            <li class="pulll_left">2019年失踪儿童数 </li>
+            <li class="pulll_left">2020年失踪儿童数</li>
+            <li class="pulll_left">2021年失踪儿童数</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <p style="margin: 0 0 auto 88%;"><a href = "JavaScript:void(0)" onclick = "openDialog_map()">点击放大</a></p>
+        <!-- <div class="map1"><img src="picture/lbx.png"></div>
+        <div class="map2"><img src="picture/jt.png"></div>
+        <div class="map3"><img src="picture/map.png"></div> -->
+        <div class="alltitle">失踪儿童地理位置分布</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/bmap.html" style="border: 0ch;z-index: -2;"></iframe>
+        </div>
+      </div>
+      <div class="boxall" style="height: 3.2rem;margin-top: -25%;background: rgba(6,25,96,1)">
+        <p style="margin: 0 0 auto 88%;"><a href = "JavaScript:void(0)" onclick = "openDialog_line()">点击放大</a></p>
+        <div class="alltitle">各省份失踪儿童数</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/sf.html" style="border: 0ch;z-index: -2;margin-top: -40px;margin-left: 10%;"></iframe>
+        </div>
+        <!-- <div class="alltitle">模块标题样式1</div>
+        <div class="allnav" id="echart1"></div>
+        <div class="boxfoot"></div> -->
+      </div>
+    </li>
+    <li>
+          <div class="boxall" style="height:3.4rem">
+        <div class="alltitle">结案率</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/L.html" style="border: 0ch;z-index: -2;"></iframe>
+        </div>
+      </div>
+      <div class="boxall" style="height: 3.2rem">
+        <div class="alltitle">防拐宣传视频</div>
+        <video width="400px" height="180px" controls="controls">
+          <source src="movie/202106131158.mp4" type="video/mp4"/>
+      </video>
+        <!-- <video width="400px" height="180px" controls> -->
+          <!-- <source src="movie/video.mp4" type="video/mp4"> -->
+          <!-- <source src="movie/.ogg" type="video/ogg"> -->
+          <!-- <source src="movie.webm" type="video/webm"> -->
+          <!-- <object data="movie/video.mp4" width="400" height="180"> -->
+            <!-- <embed src="movie/video.mp4" width="400" height="180"> -->
+          <!-- </object>  -->
+        <!-- </video> -->
+        <!-- <div class="allnav" id="echart5"></div>
+        <div class="boxfoot"></div> -->
+      </div>
+      <div class="boxall" style="height: 3rem">
+        <div class="alltitle">失踪儿童结案词云</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html/词云.html" style="border: 0ch;z-index: -2;margin-top: -20px;"></iframe>
+        </div>
+        <!-- <div class="allnav" id="echart6"></div>
+        <div class="boxfoot"></div> -->
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="back"></div>
+
+
+<script type="text/javascript" src="js/china.js"></script> 
+<script type="text/javascript" src="js/area_echarts.js"></script> 
+
+<!-- 年龄段统计放大 -->
+<div id="light" class="white_content">
+  <a href = "javascript:void(0)" onclick = "closeDialog()"style="margin:0px 0px auto 96%;color:black;text-decoration: none;background-color: rgba(255,255,255,.7);border: 2px solid rgba(6,25,96,.6)">返回</a>
+  <div class="alltitle">失踪儿童年龄段统计</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html_1/失踪年龄段统计.html" style="border: 0ch;z-index: -2;margin-top: 10px;"></iframe>
+        </div>
+</div>
+
+<!-- 性别比放大 -->
+<div id="light1" class="white_content">
+  <a href = "javascript:void(0)" onclick = "closeDialog_1()"style="margin:0px 0px auto 96%;color:black;text-decoration: none;background-color: rgba(255,255,255,.7);border: 2px solid rgba(6,25,96,.6)">返回</a>
+  <div class="alltitle">近五年失踪儿童性别比</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html_1/男女柱状图.html" style="border: 0ch;z-index: -2;margin-top: 10px;"></iframe>
+        </div>
+</div>
+
+<!-- 饼图放大 -->
+<div id="light_pie" class="white_content">
+  <a href = "javascript:void(0)" onclick = "closeDialog_pie()"style="margin:0px 0px auto 96%;color:black;text-decoration: none;background-color: rgba(255,255,255,.7);border: 2px solid rgba(6,25,96,.6)">返回</a>
+  <div class="alltitle">失踪儿童时间段分布</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html_1/pie.html" style="border: 0ch;z-index: -2;margin-top: -30px;"></iframe>
+        </div>
+</div>
+
+<!-- 地图放大 -->
+<div id="light_map" class="white_content">
+  <a href = "javascript:void(0)" onclick = "closeDialog_map()"style="margin:0px 0px auto 96%;color:black;text-decoration: none;background-color: rgba(255,255,255,.7);border: 2px solid rgba(6,25,96,.6)">返回</a>
+  <div class="alltitle">失踪儿童位置分布</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html_1/bmap.html" style="border: 0ch;z-index: -2;margin-top: 10px;"></iframe>
+        </div>
+</div>
+
+<!-- 折线图 -->
+<div id="light_line" class="white_content">
+  <a href = "javascript:void(0)" onclick = "closeDialog_line()"style="margin:0px 0px auto 96%;color:black;text-decoration: none;background-color: rgba(255,255,255,.7);border: 2px solid rgba(6,25,96,.6)">返回</a>
+  <div class="alltitle">失踪儿童位置分布</div>
+        <div style="width: 100%;height: 100%;"> 
+          <iframe width="100%" height="100%" src="html_1/sf.html" style="border: 0ch;z-index: -2;margin-top: 10px;"></iframe>
+        </div>
+</div>
+<div id="fade" class="black_overlay"></div>
+</body>
+<script type="text/javascript">
+  $(function(){
+  })
+  // 年龄段放大
+  function openDialog(){
+    document.getElementById('light').style.display='block';
+    document.getElementById('fade').style.display='block'
+  }
+  function closeDialog(){
+    document.getElementById('light').style.display='none';
+    document.getElementById('fade').style.display='none'
+  }
+  // 性别比放大
+  function openDialog_1(){
+    document.getElementById('light1').style.display='block';
+    document.getElementById('fade').style.display='block'
+  }
+  function closeDialog_1(){
+    document.getElementById('light1').style.display='none';
+    document.getElementById('fade').style.display='none'
+  }
+  // 饼图放大
+  function openDialog_pie(){
+    document.getElementById('light_pie').style.display='block';
+    document.getElementById('fade').style.display='block'
+  }
+  function closeDialog_pie(){
+    document.getElementById('light_pie').style.display='none';
+    document.getElementById('fade').style.display='none'
+  }
+  // 地图放大
+  function openDialog_map(){
+    document.getElementById('light_map').style.display='block';
+    document.getElementById('fade').style.display='block'
+  }
+  function closeDialog_map(){
+    document.getElementById('light_map').style.display='none';
+    document.getElementById('fade').style.display='none'
+  }
+  // 折线放大
+  function openDialog_line(){
+    document.getElementById('light_line').style.display='block';
+    document.getElementById('fade').style.display='block'
+  }
+  function closeDialog_line(){
+    document.getElementById('light_line').style.display='none';
+    document.getElementById('fade').style.display='none'
+  }
+</script>
+</html>
